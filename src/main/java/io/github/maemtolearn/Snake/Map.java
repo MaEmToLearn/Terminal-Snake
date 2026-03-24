@@ -58,8 +58,9 @@ public class Map {
         // Walls already excluded
         // Loop to avoid food spawning on snake
         while (!getTile(spawn).isEmpty()) {
-            spawn.setRow(generator.nextInt(height - 1) + 1);
-            spawn.setColumn(generator.nextInt(width - 1) + 1);
+            int row = generator.nextInt(height - 1) + 1;
+            int column = generator.nextInt(width - 1) + 1;
+            spawn = new Coordinates(row, column);
         }
 
         food = getTile(spawn);
