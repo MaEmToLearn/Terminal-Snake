@@ -76,8 +76,8 @@ public class Tile {
         return type == Type.HWall || type == Type.VWall;
     }
 
-    public boolean isFood() {
-        return type == Type.Food;
+    public boolean isNotFood() {
+        return type != Type.Food;
     }
 
     public boolean isEmpty() {

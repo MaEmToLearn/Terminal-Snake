@@ -29,7 +29,7 @@ public class Snake {
     }
 
     public void move(Tile next) {
-        if (!next.isFood()) removeEnd();
+        if (next.isNotFood()) removeEnd();
         if (next.isKill()) isAlive = false;
         addStart(next);
         if (!isAlive) getHead().setType(Tile.Type.Death);

@@ -36,7 +36,7 @@ public class Map {
     }
 
     public void checkFood() {
-        if (!food.isFood()) spawnFood();
+        if (food.isNotFood()) spawnFood();
     }
 
     public void drawTo(StringBuilder drawBuffer) {
