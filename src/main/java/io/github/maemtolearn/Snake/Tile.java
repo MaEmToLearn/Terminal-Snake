@@ -62,15 +62,7 @@ public class Tile {
     }
 
     public boolean isKill() {
-        return isSnake() || isWall();
-    }
-
-    public boolean isSnake() {
-        return type == Type.SNAKE;
-    }
-
-    public boolean isWall() {
-        return type == Type.H_WALL || type == Type.V_WALL;
+        return type == Type.SNAKE || type == Type.H_WALL || type == Type.V_WALL;
     }
 
     public boolean isNotFood() {
