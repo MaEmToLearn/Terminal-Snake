@@ -11,7 +11,7 @@ public class Snake {
     public Snake(List<Tile> parts) {
         this.parts.addAll(parts);
         for (Tile part : parts) {
-            part.setType(Tile.Type.SNAKE);
+            part.setType(TileType.SNAKE);
         }
         this.parts.getFirst().setAsHead(direction);
     }
@@ -29,10 +29,10 @@ public class Snake {
     }
 
     public void move(Tile next) {
-        if (next.isNotFood()) removeEnd();
+        if (!next.isFood()) removeEnd();
         if (next.isKill()) isAlive = false;
         addStart(next);
-        if (!isAlive) getHead().setDeathLocation();
+        if (!isAlive) getHead().setType(TileType.DEATH);
     }
 
     private Tile getHead() {
@@ -40,13 +40,13 @@ public class Snake {
     }
 
     private void addStart(Tile tile) {
-        parts.getFirst().setType(Tile.Type.SNAKE);
+        parts.getFirst().setType(TileType.SNAKE);
         parts.addFirst(tile);
         tile.setAsHead(direction);
     }
 
     private void removeEnd() {
-        parts.removeLast().setType(Tile.Type.EMPTY);
+        parts.removeLast().setType(TileType.EMPTY);
     }
 
     public Direction getDirection() {
