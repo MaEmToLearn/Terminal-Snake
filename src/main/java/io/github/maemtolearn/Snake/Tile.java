@@ -16,7 +16,6 @@ public class Tile {
 
     public enum Type {
         Snake,
-        Head,
         Food,
         HWall,
         VWall,
@@ -42,7 +41,6 @@ public class Tile {
 
         switch (type) {
             case Snake -> symbol = snakeSymbol;
-            case Head -> symbol = headEastSymbol;
             case Food -> symbol = foodSymbol;
             case HWall -> symbol = hWallSymbol;
             case VWall -> symbol = vWallSymbol;
@@ -51,17 +49,16 @@ public class Tile {
         }
     }
 
-    public void setAsHead(Direction direction) {
-        setType(Type.Head);
     public void setDeathLocation() {
         symbol = DEATH_SYMBOL;
     }
 
+    public void setAsHead(Direction direction) {
         switch (direction) {
-            case NORTH -> symbol = headNorthSymbol;
-            case EAST -> symbol = headEastSymbol;
-            case SOUTH -> symbol = headSouthSymbol;
-            case WEST -> symbol = headWestSymbol;
+            case NORTH -> symbol = HEAD_NORTH_SYMBOL;
+            case EAST -> symbol = HEAD_EAST_SYMBOL;
+            case SOUTH -> symbol = HEAD_SOUTH_SYMBOL;
+            case WEST -> symbol = HEAD_WEST_SYMBOL;
         }
     }
 
