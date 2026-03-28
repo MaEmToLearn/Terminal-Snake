@@ -21,9 +21,9 @@ public class Map {
                 Tile tile = new Tile(coordinates);
 
                 if (row == 0 || row == this.height - 1) {
-                    tile.setType(Tile.Type.HWall);
+                    tile.setType(Tile.Type.H_WALL);
                 } else if (column == 0 || column == this.width - 1) {
-                    tile.setType(Tile.Type.VWall);
+                    tile.setType(Tile.Type.V_WALL);
                 }
 
                 tiles[row][column] = tile;
@@ -64,7 +64,7 @@ public class Map {
         }
 
         food = getTile(spawn);
-        food.setType(Tile.Type.Food);
+        food.setType(Tile.Type.FOOD);
     }
 
     public Tile getSafeSpawnPoint(int snakeStartLength) {

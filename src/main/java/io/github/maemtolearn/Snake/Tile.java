@@ -2,24 +2,24 @@ package io.github.maemtolearn.Snake;
 
 public class Tile {
     // Added spaces to stretch the otherwise condensed tile width
-    private static final String snakeSymbol = " *";
-    private static final String foodSymbol = " o";
-    private static final String hWallSymbol = " -";
-    private static final String vWallSymbol = " |";
-    private static final String emptySymbol = "  ";
-    private static final String deathSymbol = " X";
+    private static final String SNAKE_SYMBOL = " *";
+    private static final String FOOD_SYMBOL = " o";
+    private static final String H_WALL_SYMBOL = " -";
+    private static final String V_WALL_SYMBOL = " |";
+    private static final String EMPTY_SYMBOL = "  ";
+    private static final String DEATH_SYMBOL = " X";
 
-    private static final String headEastSymbol = " >";
-    private static final String headWestSymbol = " <";
-    private static final String headNorthSymbol = " ^";
-    private static final String headSouthSymbol = " v";
+    private static final String HEAD_EAST_SYMBOL = " >";
+    private static final String HEAD_WEST_SYMBOL = " <";
+    private static final String HEAD_NORTH_SYMBOL = " ^";
+    private static final String HEAD_SOUTH_SYMBOL = " v";
 
     public enum Type {
-        Snake,
-        Food,
-        HWall,
-        VWall,
-        Empty,
+        SNAKE,
+        FOOD,
+        H_WALL,
+        V_WALL,
+        EMPTY
     }
 
     private final Coordinates coordinates;
@@ -27,8 +27,8 @@ public class Tile {
     private String symbol;
 
     public Tile(Coordinates coordinates) {
-        type = Type.Empty;
-        symbol = emptySymbol;
+        type = Type.EMPTY;
+        symbol = EMPTY_SYMBOL;
         this.coordinates = coordinates;
     }
 
@@ -40,12 +40,11 @@ public class Tile {
         this.type = type;
 
         switch (type) {
-            case Snake -> symbol = snakeSymbol;
-            case Food -> symbol = foodSymbol;
-            case HWall -> symbol = hWallSymbol;
-            case VWall -> symbol = vWallSymbol;
-            case Empty -> symbol = emptySymbol;
-            default -> throw new IllegalArgumentException("Unsupported tile type" + type);
+            case SNAKE -> symbol = SNAKE_SYMBOL;
+            case FOOD -> symbol = FOOD_SYMBOL;
+            case H_WALL -> symbol = H_WALL_SYMBOL;
+            case V_WALL -> symbol = V_WALL_SYMBOL;
+            case EMPTY -> symbol = EMPTY_SYMBOL;
         }
     }
 
@@ -67,19 +66,19 @@ public class Tile {
     }
 
     public boolean isSnake() {
-        return type == Type.Snake || type == Type.Head;
+        return type == Type.SNAKE;
     }
 
     public boolean isWall() {
-        return type == Type.HWall || type == Type.VWall;
+        return type == Type.H_WALL || type == Type.V_WALL;
     }
 
     public boolean isNotFood() {
-        return type != Type.Food;
+        return type != Type.FOOD;
     }
 
     public boolean isEmpty() {
-        return type == Type.Empty;
+        return type == Type.EMPTY;
     }
 
     @Override
