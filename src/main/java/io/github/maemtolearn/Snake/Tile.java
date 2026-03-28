@@ -21,7 +21,6 @@ public class Tile {
         HWall,
         VWall,
         Empty,
-        Death
     }
 
     private final Coordinates coordinates;
@@ -48,13 +47,15 @@ public class Tile {
             case HWall -> symbol = hWallSymbol;
             case VWall -> symbol = vWallSymbol;
             case Empty -> symbol = emptySymbol;
-            case Death -> symbol = deathSymbol;
             default -> throw new IllegalArgumentException("Unsupported tile type" + type);
         }
     }
 
     public void setAsHead(Direction direction) {
         setType(Type.Head);
+    public void setDeathLocation() {
+        symbol = DEATH_SYMBOL;
+    }
 
         switch (direction) {
             case NORTH -> symbol = headNorthSymbol;

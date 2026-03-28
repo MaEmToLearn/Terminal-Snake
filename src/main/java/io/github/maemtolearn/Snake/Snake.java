@@ -32,7 +32,7 @@ public class Snake {
         if (next.isNotFood()) removeEnd();
         if (next.isKill()) isAlive = false;
         addStart(next);
-        if (!isAlive) getHead().setType(Tile.Type.Death);
+        if (!isAlive) getHead().setDeathLocation();
     }
 
     private Tile getHead() {
