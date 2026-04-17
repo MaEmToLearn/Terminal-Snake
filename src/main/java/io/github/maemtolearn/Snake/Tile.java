@@ -30,12 +30,12 @@ public class Tile {
     }
 
     public void setAsHead(Direction direction) {
-        switch (direction) {
-            case NORTH -> type = TileType.HEAD_NORTH;
-            case EAST -> type = TileType.HEAD_EAST;
-            case SOUTH -> type = TileType.HEAD_SOUTH;
-            case WEST -> type = TileType.HEAD_WEST;
-        }
+        type = switch (direction) {
+            case NORTH -> TileType.HEAD_NORTH;
+            case EAST -> TileType.HEAD_EAST;
+            case SOUTH -> TileType.HEAD_SOUTH;
+            case WEST -> TileType.HEAD_WEST;
+        };
     }
 
     @Override

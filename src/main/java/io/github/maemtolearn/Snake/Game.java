@@ -49,14 +49,13 @@ public class Game {
             // e.g. by checking reader.available() for valid input until a specific timestamp
             int c = reader.read(cycleLength);
 
-            Direction newDirection;
-            switch ((char) c) {
-                case 'w' -> newDirection = Direction.NORTH;
-                case 'a' -> newDirection = Direction.WEST;
-                case 's' -> newDirection = Direction.SOUTH;
-                case 'd' -> newDirection = Direction.EAST;
-                default -> newDirection = snake.getDirection();
-            }
+            Direction newDirection = switch ((char) c) {
+                case 'w' -> Direction.NORTH;
+                case 'a' -> Direction.WEST;
+                case 's' -> Direction.SOUTH;
+                case 'd' -> Direction.EAST;
+                default -> snake.getDirection();
+            };
 
             if (newDirection != snake.getOppositeDirection()) {
                 snake.setDirection(newDirection);
