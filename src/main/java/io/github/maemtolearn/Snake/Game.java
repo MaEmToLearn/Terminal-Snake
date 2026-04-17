@@ -73,8 +73,7 @@ public class Game {
     }
 
     private void playTurn() {
-        Tile next = map.getTile(snake.nextTarget());
-        snake.move(next);
+        snake.move(map.getTile(snake.requestTarget()));
         if (score() < maxScore) map.checkFood();
     }
 

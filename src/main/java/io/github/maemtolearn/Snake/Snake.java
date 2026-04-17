@@ -22,18 +22,18 @@ public class Snake {
         return isAlive;
     }
 
-    public Coordinates nextTarget() {
+    public Coordinates requestTarget() {
         return head().coordinates().increment(direction);
     }
 
     public void move(Tile next) {
-        if (!next.isFood()) removeEnd();
+        if (!next.isFood()) remove();
         if (next.isKill()) isAlive = false;
         addFirst(next);
         if (!isAlive) head().setType(TileType.DEATH);
     }
 
-    private Tile getHead() {
+    public Tile head() {
         return body.getFirst();
     }
 
