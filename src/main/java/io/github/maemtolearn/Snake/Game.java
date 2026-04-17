@@ -57,7 +57,7 @@ public class Game {
                 default -> snake.direction();
             };
 
-            if (newDirection != snake.direction().opposite()) {
+            if (newDirection != snake.getOppositeDirection()) {
                 snake.setDirection(newDirection);
             }
 

@@ -54,16 +54,4 @@ public class Snake {
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
-
-    public Direction getOppositeDirection() {
-        Direction opposite;
-        switch (direction) {
-            case NORTH -> opposite = Direction.SOUTH;
-            case EAST -> opposite = Direction.WEST;
-            case SOUTH -> opposite = Direction.NORTH;
-            case WEST -> opposite = Direction.EAST;
-            default -> throw new IllegalArgumentException("Unsupported direction: " + direction);
-        }
-        return opposite;
-    }
 }
