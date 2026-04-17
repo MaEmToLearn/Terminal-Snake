@@ -49,7 +49,7 @@ public class Map {
     }
 
     public Tile getTile(Coordinates coordinates) {
-        return tiles[coordinates.getRow()][coordinates.getColumn()];
+        return tiles[coordinates.row()][coordinates.column()];
     }
 
     private void spawnFood() {

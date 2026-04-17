@@ -17,10 +17,10 @@ class TileTest {
     private final Tile tile = new Tile(coordinates);
 
     @Test
-    void getCoordinates1() {
+    void coordinates1() {
         Tile test = new Tile(coordinates);
-        assertEquals(column, test.getCoordinates().getRow());
-        assertEquals(row, test.getCoordinates().getColumn());
+        assertEquals(column, test.coordinates().row());
+        assertEquals(row, test.coordinates().column());
     }
 
     @Test
@@ -55,7 +55,7 @@ class TileTest {
     @MethodSource("provideDirectionHeadTypeCombination")
     void setAsHead1(Direction direction, TileType expectedTileType) {
         tile.setAsHead(direction);
-        assertEquals(expectedTileType.getSymbol(), tile.toString());
+        assertEquals(expectedTileType.symbol(), tile.toString());
     }
 
     @Test
@@ -63,7 +63,7 @@ class TileTest {
     void toString1() {
         TileType testType = TileType.SNAKE;
         tile.setType(testType);
-        assertEquals(testType.getSymbol(), tile.toString());
+        assertEquals(testType.symbol(), tile.toString());
     }
 
     private static Stream<Arguments> provideDirectionHeadTypeCombination() {

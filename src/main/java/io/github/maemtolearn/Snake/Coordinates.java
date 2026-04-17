@@ -23,11 +23,11 @@ public class Coordinates {
         return new Coordinates(row, column);
     }
 
-    public int getRow() {
+    public int row() {
         return row;
     }
 
-    public int getColumn() {
+    public int column() {
         return column;
     }
 }

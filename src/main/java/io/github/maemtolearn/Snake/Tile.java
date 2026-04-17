@@ -9,7 +9,7 @@ public class Tile {
         this.coordinates = coordinates;
     }
 
-    public Coordinates getCoordinates() {
+    public Coordinates coordinates() {
         return coordinates;
     }
 
@@ -40,6 +40,6 @@ public class Tile {
 
     @Override
     public String toString() {
-        return type.getSymbol();
+        return type.symbol();
     }
 }

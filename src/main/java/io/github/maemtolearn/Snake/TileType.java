@@ -26,7 +26,7 @@ public enum TileType {
         this.isFood = isFood;
     }
 
-    public String getSymbol() {
+    public String symbol() {
         return symbol;
     }
 

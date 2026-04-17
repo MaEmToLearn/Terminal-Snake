@@ -16,8 +16,8 @@ public class Snake {
         this.parts.getFirst().setAsHead(direction);
     }
 
-    public int getLength() {
         return parts.size();
+    public int length() {
     }
 
     public boolean isAlive() {
@@ -49,7 +49,7 @@ public class Snake {
         parts.removeLast().setType(TileType.EMPTY);
     }
 
-    public Direction getDirection() {
+    public Direction direction() {
         return direction;
     }
 

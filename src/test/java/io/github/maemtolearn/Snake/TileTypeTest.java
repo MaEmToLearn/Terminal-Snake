@@ -36,7 +36,7 @@ class TileTypeTest {
     @DisplayName("TileType has a symbol")
     @MethodSource("enumFactory")
     void tileType1(TileType type) {
-        assertFalse(type.getSymbol().isEmpty());
+        assertFalse(type.symbol().isEmpty());
     }
 
     private static Stream<TileType> enumFactory() {

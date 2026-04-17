@@ -54,10 +54,10 @@ public class Game {
                 case 'a' -> Direction.WEST;
                 case 's' -> Direction.SOUTH;
                 case 'd' -> Direction.EAST;
-                default -> snake.getDirection();
+                default -> snake.direction();
             };
 
-            if (newDirection != snake.getOppositeDirection()) {
+            if (newDirection != snake.direction().opposite()) {
                 snake.setDirection(newDirection);
             }
 
@@ -79,7 +79,7 @@ public class Game {
     }
 
     private int score() {
-        return snake.getLength() - snakeStartLength;
+        return snake.length() - snakeStartLength;
     }
 
     private void drawFrame() {
@@ -123,7 +123,7 @@ public class Game {
         Tile next = map.getSafeSpawnPoint(snakeStartLength);
         for (int i = 0; i < snakeStartLength; i++) {
             startSnakeParts.add(next);
-            next = map.getTile(next.getCoordinates().increment(Direction.WEST));
+            next = map.getTile(next.coordinates().increment(Direction.WEST));
         }
 
         return new Snake(startSnakeParts);
