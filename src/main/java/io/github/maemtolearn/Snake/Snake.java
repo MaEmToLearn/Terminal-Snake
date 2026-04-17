@@ -8,11 +8,9 @@ public class Snake {
     private Direction direction = Direction.EAST;
     private boolean isAlive = true;
 
-    public Snake(List<Tile> parts) {
-        for (Tile part : parts) {
-            part.setType(TileType.SNAKE);
-        }
+    public Snake(List<Tile> tiles) {
         this.body.addAll(tiles);
+        tiles.forEach(t -> t.setType(TileType.SNAKE));
         head().setAsHead(direction);
     }
 
