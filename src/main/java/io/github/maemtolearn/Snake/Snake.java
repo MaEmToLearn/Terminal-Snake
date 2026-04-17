@@ -4,20 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Snake {
-    private final List<Tile> parts = new ArrayList<>();
+    private final List<Tile> body = new ArrayList<>();
     private Direction direction = Direction.EAST;
     private boolean isAlive = true;
 
     public Snake(List<Tile> parts) {
-        this.parts.addAll(parts);
         for (Tile part : parts) {
             part.setType(TileType.SNAKE);
         }
         this.parts.getFirst().setAsHead(direction);
+        this.body.addAll(tiles);
     }
 
-        return parts.size();
     public int length() {
+        return body.size();
     }
 
     public boolean isAlive() {
@@ -36,17 +36,17 @@ public class Snake {
     }
 
     private Tile getHead() {
-        return parts.getFirst();
+        return body.getFirst();
     }
 
     private void addStart(Tile tile) {
-        parts.getFirst().setType(TileType.SNAKE);
-        parts.addFirst(tile);
+        if (!body.isEmpty()) head().setType(TileType.SNAKE);
         tile.setAsHead(direction);
+        body.addFirst(tile);
     }
 
     private void removeEnd() {
-        parts.removeLast().setType(TileType.EMPTY);
+        if (!body.isEmpty()) body.removeLast().setType(TileType.EMPTY);
     }
 
     public Direction direction() {
